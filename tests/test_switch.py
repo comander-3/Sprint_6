@@ -18,10 +18,9 @@ class TestDropDownList:
     )
     def test_switch_on_page(self, driver, open_order_page, logo, current_url_exc):
         order_page = OrderPage(driver)
-        base = BasePage(driver)
         open_order_page
         order_page.click_on_element(logo)
         if current_url_exc == Urls.dzen_page:
-            base.get_tab_and_switch()
-            base.check_switch_dzen()
-        assert driver.current_url == current_url_exc
+            order_page.get_tab_and_switch()
+            order_page.check_switch_dzen()
+        assert order_page.get_current_url() == current_url_exc

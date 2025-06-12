@@ -42,4 +42,6 @@ class BasePage:
 
     def check_switch_dzen(self):
         return WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(LocatorsBasePage.yandex))
-    
+
+    def get_current_url(self):
+        return self.driver.current_url
